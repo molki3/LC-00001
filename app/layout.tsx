@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Atkinson_Hyperlegible_Mono } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/layout/navbar";
 
 const atkMono = Atkinson_Hyperlegible_Mono({
   variable: "--font-atkmono",
@@ -22,7 +23,10 @@ export default function RootLayout({
       <body
         className={`${atkMono.variable} font-sans antialiased`}
       >
-        {children}
+        <Navbar/>
+        <main className="pt-14">
+          {children}
+        </main>
       </body>
     </html>
   );
