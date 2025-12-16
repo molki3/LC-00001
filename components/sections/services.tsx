@@ -16,10 +16,10 @@ export function Services(){
 
                 {/* MOBILE */}
                 <div className="mt-10 md:hidden">
-                    <Carousel className="mx-auto w-full max-w-xs text-center">
+                    <Carousel className="mx-auto w-3/4 max-w-xs text-center" opts={{ align: "start" }}>
                         <CarouselContent>
                             {SERVICES.map(s => (
-                                <CarouselItem>
+                                <CarouselItem key={s.title}>
                                     <div className="text-lg font-semibold">{s.title}</div>
                                     <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                                 </CarouselItem>
