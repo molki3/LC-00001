@@ -19,7 +19,7 @@ export function Services(){
                     <Carousel className="mx-auto w-3/4 max-w-xs text-center" opts={{ align: "start" }}>
                         <CarouselContent>
                             {SERVICES.map(s => (
-                                <CarouselItem key={s.title}>
+                                <CarouselItem key={s.title} className="basis-3/4 mx-auto border-2 rounded-xl">
                                     <div className="text-lg font-semibold">{s.title}</div>
                                     <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                                 </CarouselItem>
@@ -31,7 +31,7 @@ export function Services(){
                 </div>
 
                 {/* DESKTOP */}
-                <div className="mt-10 hidden md:flex md:gap-6">
+                <div className="mt-10 hidden md:grid md:grid-cols-3 md:gap-6">
                     {SERVICES.map(s => (
                         <div key={s.title} className="flex-1 rounded-2xl border p-6 shadow-sm">
                             <div className="text-lg font-semibold">{s.title}</div>
