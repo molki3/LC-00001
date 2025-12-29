@@ -36,13 +36,10 @@ export function Contact(){
                             <CalendarDays className="mt-0.5 h-5 w-5 text-muted-foreground"/>
                             <div>
                                 <div className="font-medium">Schedule a call</div>
-                                <p className="mt-1 text-sm  text-accent-foreground">
-                                    Calendar embebed goes here
-                                </p>
                             </div>
                         </div>
-                        <div className="mt-6 flex h-56 items-center justify-center rounded-lg border bg-background text-sm text-muted-foreground">
-                            Calendar Placeholder
+                        <div className="">
+                            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2sYJcdOMyqAaBexzzt2N0DaHs92zcPQKmJFZ2IFO9MMrzIkgv6aO3z1rEXjJs8jmiSdoUnkCxM?gv=true" width="100%" height="600" loading="lazy" style={{ border: 0}}></iframe>
                         </div>
                     </div>
                 </div>

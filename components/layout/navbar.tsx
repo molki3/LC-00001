@@ -23,7 +23,7 @@ export function Navbar() {
                     <a href="#who-we-are" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
                         Who We Are
                     </a>
-                    <a href="contact" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+                    <a href="#contact" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
                         Contact
                     </a>
                 </nav>
