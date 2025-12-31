@@ -17,6 +17,9 @@ export function Navbar() {
 
                 {/* DESKTOP */}
                 <nav className="hidden md:flex items-center gap-8">
+                    <a href="/" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+                        Home
+                    </a>
                     <a href="#services" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
                         Services
                     </a>
@@ -45,6 +48,11 @@ export function Navbar() {
                             </SheetHeader>
 
                             <nav className="mt-6 px-5 flex flex-col gap-4">
+                                <SheetClose asChild>
+                                    <a className="text-sm font-medium hover-underline" href="/">
+                                        Home
+                                    </a>
+                                </SheetClose>
                                 <SheetClose asChild>
                                     <a className="text-sm font-medium hover-underline" href="#services">
                                         Services

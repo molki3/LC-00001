@@ -38,8 +38,8 @@ export function Contact(){
                                 <div className="font-medium">Schedule a call</div>
                             </div>
                         </div>
-                        <div className="">
-                            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2sYJcdOMyqAaBexzzt2N0DaHs92zcPQKmJFZ2IFO9MMrzIkgv6aO3z1rEXjJs8jmiSdoUnkCxM?gv=true" width="100%" height="600" loading="lazy" style={{ border: 0}}></iframe>
+                        <div className="mt-6 overflow-hidden rounded-lg border">
+                            
                         </div>
                     </div>
                 </div>
