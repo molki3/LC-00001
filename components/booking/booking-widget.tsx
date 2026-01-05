@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Calendar } from "@/components/ui/calendar"
 import { format } from "date-fns"
 import { cn } from "@/lib/utils"
-import { Clock, Calendar as CalendarIcon, CheckCircle2, ChevronRight, User, Video } from "lucide-react"
+import { Clock, Calendar as CalendarIcon, CheckCircle2, ChevronRight, Video } from "lucide-react"
 
 // Mock available times for now
 const TIME_SLOTS = [
@@ -108,7 +108,7 @@ export function BookingWidget() {
                         </span>
                         <h2 className="text-2xl font-bold mt-4">Discovery Call</h2>
                         <p className="text-muted-foreground text-sm leading-relaxed">
-                            Let's discuss your project requirements, timeline, and how we can help you achieve your goals.
+                            Let&apos;s discuss your project requirements, timeline, and how we can help you achieve your goals.
                         </p>
                     </div>
 
