@@ -1,7 +1,7 @@
 export function WhoWeAre(){
     return(
-        <section id="who-we-are" className="bg-white">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16">
+        <section id="who-we-are" className="bg-white py-20">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="grid items-center gap-10 md:grid-cols-2">
                     {/* TEXT */}
                     <div>

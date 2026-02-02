@@ -24,11 +24,11 @@ export default function RootLayout({
       <body
         className={`${atkMono.variable} font-sans antialiased`}
       >
-        <Navbar/>
+        <Navbar />
         <main id="hero" className="pt-14">
           {children}
         </main>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

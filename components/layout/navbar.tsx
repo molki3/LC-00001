@@ -4,61 +4,13 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { Menu } from "lucide-react";
-import { useState } from "react";
+import { useNavigation } from "@/hooks/use-navigation";
+import { SECTIONS } from "@/static/static"
+import { CONTACT_INFORMATION } from "@/static/static"
 
 export function Navbar() {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
-        e.preventDefault();
-        const duration = 1000;
-        setIsMobileMenuOpen(false);
-
-        // Handle "Home" or top of page
-        if (targetId === '/') {
-            window.scrollTo({ top: 0, behavior: 'smooth' }); // Fallback or use custom animation if strictly needed, but let's stick to the custom one for consistency if we want "slow"
-            // Actually, for consistency with the "slow" requirement:
-            const targetPosition = 0;
-            const startPosition = window.scrollY;
-            const distance = targetPosition - startPosition;
-            let start: number | null = null;
-
-            const animation = (currentTime: number) => {
-                if (start === null) start = currentTime;
-                const timeElapsed = currentTime - start;
-                const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
-                window.scrollTo(0, run);
-                if (timeElapsed < duration) requestAnimationFrame(animation);
-            };
-            requestAnimationFrame(animation);
-            return;
-        }
-
-        const target = document.querySelector(targetId);
-        if (!target) return;
-
-        const targetPosition = target.getBoundingClientRect().top + window.scrollY;
-        const startPosition = window.scrollY;
-        const distance = targetPosition - startPosition;
-        let start: number | null = null;
-
-        const animation = (currentTime: number) => {
-            if (start === null) start = currentTime;
-            const timeElapsed = currentTime - start;
-            const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
-            window.scrollTo(0, run);
-            if (timeElapsed < duration) requestAnimationFrame(animation);
-        };
-
-        const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t * t + b;
-            t -= 2;
-            return c / 2 * (t * t * t + 2) + b;
-        };
-
-        requestAnimationFrame(animation);
-    };
+    // Removed local state and function
+    const { isMobileMenuOpen, setIsMobileMenuOpen, smoothScroll } = useNavigation();
 
     return (
         <header className="fixed inset-x-0 z-50 top-0 bg-linear-to-r from-purple-600 via-pink-500 to-orange-500">
@@ -66,23 +18,16 @@ export function Navbar() {
 
                 {/* LOGO */}
                 <Link href="/" className="text-lg font-semibold text-white hover:opacity-90 transition-opacity">
-                    LC
+                    {CONTACT_INFORMATION[0].value}
                 </Link>
 
                 {/* DESKTOP */}
                 <nav className="hidden md:flex items-center gap-8">
-                    <a href="#hero" onClick={(e) => smoothScroll(e, '#hero')} className="text-sm font-medium text-white/80 hover:text-white transition-colors">
-                        Home
-                    </a>
-                    <a href="#services" onClick={(e) => smoothScroll(e, '#services')} className="text-sm font-medium text-white/80 hover:text-white transition-colors">
-                        Services
-                    </a>
-                    <a href="#who-we-are" onClick={(e) => smoothScroll(e, '#who-we-are')} className="text-sm font-medium text-white/80 hover:text-white transition-colors">
-                        Who We Are
-                    </a>
-                    <a href="#contact" onClick={(e) => smoothScroll(e, '#contact')} className="text-sm font-medium text-white/80 hover:text-white transition-colors">
-                        Contact
-                    </a>
+                    {SECTIONS.map(s => (
+                        <a key={s.title} href={s.href} onClick={(e) => smoothScroll(e, s.href)} className="text-sm font-medium text-white/80 hover:text-white transition-colors">
+                            {s.title}
+                        </a>
+                    ))}
                 </nav>
 
                 {/* MOBILE */}
@@ -98,30 +43,17 @@ export function Navbar() {
 
                         <SheetContent>
                             <SheetHeader>
-                                <SheetTitle>LC</SheetTitle>
+                                <SheetTitle>Menu</SheetTitle>
                             </SheetHeader>
 
                             <nav className="mt-6 px-5 flex flex-col gap-4">
-                                <SheetClose asChild>
-                                    <a className="text-sm font-medium hover-underline" href="#hero" onClick={(e) => smoothScroll(e, '#hero')}>
-                                        Home
-                                    </a>
-                                </SheetClose>
-                                <SheetClose asChild>
-                                    <a className="text-sm font-medium hover-underline" href="#services" onClick={(e) => smoothScroll(e, '#services')}>
-                                        Services
-                                    </a>
-                                </SheetClose>
-                                <SheetClose asChild>
-                                    <a className="text-sm font-medium hover-underline" href="#who-we-are" onClick={(e) => smoothScroll(e, '#who-we-are')}>
-                                        Who We Are
-                                    </a>
-                                </SheetClose>
-                                <SheetClose asChild>
-                                    <a className="text-sm font-medium hover-underline" href="#contact" onClick={(e) => smoothScroll(e, '#contact')}>
-                                        Contact
-                                    </a>
-                                </SheetClose>
+                                {SECTIONS.map(s => (
+                                    <SheetClose asChild key={s.title}>
+                                        <a className="text-sm font-medium hover-underline" href={s.href} onClick={(e) => smoothScroll(e, s.href)}>
+                                            {s.title}
+                                        </a>
+                                    </SheetClose>
+                                ))}
                             </nav>
                         </SheetContent>
                     </Sheet>

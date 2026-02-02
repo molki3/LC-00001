@@ -1,9 +1,10 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { BookingWidget } from "../booking/booking-widget";
+import { CONTACT_INFORMATION } from "@/static/static";
 
 export function Contact() {
     return (
-        <section id="contact" className="bg-white py-16">
+        <section id="contact" className="bg-white py-20">
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
                 <div className="mb-12 text-center md:text-left">
                     <h2 className="text-3xl font-bold tracking-tight">Get in Touch</h2>
@@ -19,8 +20,9 @@ export function Contact() {
                             <Phone className="h-5 w-5" />
                         </div>
                         <div>
-                            <div className="font-medium text-sm">Phone</div>
-                            <div className="text-sm text-muted-foreground">+52 (55) 1234-5678</div>
+
+                            <div className="font-medium text-sm">{CONTACT_INFORMATION[2].title}</div>
+                            <div className="text-sm text-muted-foreground">{CONTACT_INFORMATION[2].value}</div>
                         </div>
                     </div>
 
@@ -29,8 +31,8 @@ export function Contact() {
                             <Mail className="h-5 w-5" />
                         </div>
                         <div>
-                            <div className="font-medium text-sm">Email</div>
-                            <div className="text-sm text-muted-foreground">contact@lc-agency.com</div>
+                            <div className="font-medium text-sm">{CONTACT_INFORMATION[1].title}</div>
+                            <div className="text-sm text-muted-foreground">{CONTACT_INFORMATION[1].value}</div>
                         </div>
                     </div>
 
@@ -39,8 +41,8 @@ export function Contact() {
                             <MapPin className="h-5 w-5" />
                         </div>
                         <div>
-                            <div className="font-medium text-sm">Location</div>
-                            <div className="text-sm text-muted-foreground">Mexico City, Mexico</div>
+                            <div className="font-medium text-sm">{CONTACT_INFORMATION[3].title}</div>
+                            <div className="text-sm text-muted-foreground">{CONTACT_INFORMATION[3].value}</div>
                         </div>
                     </div>
                 </div>
