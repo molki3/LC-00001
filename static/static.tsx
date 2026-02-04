@@ -14,8 +14,8 @@ export const SECTIONS = [
 ]
 
 export const CONTACT_INFORMATION = [
-    {title: "Name", value: "Lazaro Citizen"},
+    {title: "Name", value: "MN"},
     {title: "Email", value: "a@a.com"},
     {title: "Phone", value: "+1 (555) 555-5555"},
-    {title: "Location", value: "123 Main St, Anytown, USA"}
+    {title: "Location", value: "MX"}
 ]
